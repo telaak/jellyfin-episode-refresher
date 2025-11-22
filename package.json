@@ -1,11 +1,16 @@
 {
   "name": "jellyfin-episode-refresher",
   "version": "1.0.0",
-  "description": "",
+  "description": "periodically refreshes missing title/overview episode metadata",
   "license": "ISC",
-  "author": "",
-  "type": "commonjs",
+  "author": "telaak",
+  "type": "module",
   "main": "dist/index.js",
+  "homepage": "https://github.com/telaak/jellyfin-episode-refresher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/telaak/jellyfin-episode-refresher.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
