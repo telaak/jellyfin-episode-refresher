@@ -55,7 +55,7 @@ services:
       SERVER_URL: ""
       API_KEY: ""
       DAYS: 7
-      CRON: "0 */2 * * * *"
+      CRON: "0 */2 * * *"
     restart: unless-stopped
 ```
 
