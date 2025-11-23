@@ -1,7 +1,10 @@
 import { Jellyfin } from "@jellyfin/sdk";
 import { ItemRefreshApiRefreshItemRequest } from "@jellyfin/sdk/lib/generated-client/api/item-refresh-api";
 import { BaseItemDto } from "@jellyfin/sdk/lib/generated-client/models";
-import { getItemsApi, getItemRefreshApi } from "@jellyfin/sdk/lib/utils/api/index.js";
+import {
+  getItemsApi,
+  getItemRefreshApi,
+} from "@jellyfin/sdk/lib/utils/api/index.js";
 import { CronJob } from "cron";
 import dayjs from "dayjs";
 import "dotenv/config";
@@ -86,8 +89,11 @@ async function shouldRefreshEpisode(ep: BaseItemDto): Promise<Boolean> {
     });
 
     const previousEpisodes = seasonItems.data.Items || [];
+
+    if (previousEpisodes.length <= 1) return true;
+
     const isPreviousPlaceHolderTitles =
-      previousEpisodes.some(isPlaceholderTitle);
+      previousEpisodes.every(isPlaceholderTitle);
 
     return !isPreviousPlaceHolderTitles;
   }
