@@ -84,6 +84,7 @@ async function shouldRefreshEpisode(ep: BaseItemDto): Promise<Boolean> {
       includeItemTypes: ["Episode"],
       fields: ["Overview"],
       sortBy: ["IndexNumber"],
+      sortOrder: ["Descending"],
       recursive: false,
       limit: 5,
     });
